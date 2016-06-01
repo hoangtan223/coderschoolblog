@@ -35,8 +35,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](http://imgur.com/irc38Yi)
-[Imgur](http://i.imgur.com/irc38Yi.gifv)
+![Video Walkthrough](http://i.imgur.com/irc38Yi.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
