@@ -6,7 +6,7 @@
 
 Submitted by: **Tan Bui**
 
-Time spent: **1.5** hours spent in total
+Time spent: **8** hours spent in total
 
 URL: **https://hidden-ocean-23213.herokuapp.com**
 
