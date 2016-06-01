@@ -13,13 +13,21 @@
   <strong>Body:</strong>
   <%= @article.body %>
 </p>
-
+<div class="container">
+<h4>Comments</h4>
+<ul id="comment_list">
+<% if @article.comments.count > 0 %>
 <% @article.comments.each do |comment| %>
-<div class="row">
+<li>
 	<p><%= comment.body %></p>
-</div>
-<% end %>
+</li>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<% end %>
+<% end %>
+</ul>
+</div>
+<%= render 'comments/form' %>
+<a href="#" class="btn btn-success" data-toggle="modal" data-target="#new-comment-modal">New comment</a> |
+<%= link_to 'Edit', edit_article_path(@article), class: "btn btn-success" %> |
+<%= link_to 'Back', articles_path, class: "btn btn-success" %>
 </div>
