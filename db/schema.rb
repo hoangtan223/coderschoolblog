@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20160601131055) do
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "view_count"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "view_count", default: 0
   end
 
 end
