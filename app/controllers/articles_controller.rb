@@ -11,6 +11,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article.increase_view_count
+    logger.debug("current view count #{@article.view_count}")
   end
 
   # GET /articles/new
