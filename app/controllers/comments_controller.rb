@@ -6,6 +6,10 @@ class CommentsController < ApplicationController
 				format.json do
 					render :json => {:success => @comment.valid?, :comment => @comment.body }
 				end
+			else
+				format.json do
+					render :json => {:success => @comment.valid?, :errors => @comment.errors }
+				end
 			end
 		end
 	end

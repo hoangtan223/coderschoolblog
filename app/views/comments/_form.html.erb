@@ -5,7 +5,7 @@
       <div class="modal-body">
         <ul class="errors"></ul>
         <div class="form-group">
-        <%= f.label :body, class: "control-label" %>
+          <%= f.label :body, class: "control-label" %>
           <%= f.text_field :body, class: "form-control" %>
           <%= f.hidden_field :article_id, :value => @article.id %>
         </div>
@@ -20,16 +20,26 @@
 </div>
 
 <% content_for :head do %>
-  <script type="text/javascript">
-    $(document).ready(function() {
-  $(".comment_form").on('ajax:complete', function(_, response) {
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".comment_form").on('ajax:complete', function(_, response) {
       data = response.responseJSON;
       if (data.success){
+        $(".errors").empty();
         commentList = $("#comment_list");
         commentList.append("<li>" + data.comment + "</li>");
         $('#new-comment-modal').modal('hide');
       }
-    });
+      else {
+        $(".errors").empty();
+        var keys = Object.keys(data.errors);
+
+        for (var i = 0; i < keys.length; i++) {
+          var message = data.errors[keys[i]];
+          $(".errors").append("<li class=\"error_message\">" + keys[i] + ": " + message + "</li>");
+  }
+}
 });
-  </script>
+  });
+</script>
 <% end %>
