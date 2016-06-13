@@ -1,33 +1,43 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-<p>
-	<strong>View count:</strong>
-	<%= @article.view_count %>
-</p>
+	<div class="center-block">
+		<p id="notice"><%= notice %></p>
+		<h1 class="title row">
+			<%= @article.title %>
+		</h1>
+		<p class="viewcount row">
+			<strong>View count:</strong>
+			<%= @article.view_count %>
+		</p>
+		<div class="article_body">
+			<%= @markdown.render(@article.body).html_safe  %>
+		</div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @markdown.render(@article.body).html_safe  %>
-</p>
-<div class="container">
-<h4>Comments</h4>
-<ul id="comment_list">
-<% if @article.comments.count > 0 %>
-<% @article.comments.each do |comment| %>
-<li>
-	<p><%= comment.body %></p>
-</li>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8" id="comment_list">
+					<div class="page-header">
+						<h1><small class="float-right"><%= @article.comments.count %> comments</small> Comments </h1>
+					</div> 
+					<% if @article.comments.count > 0 %>
+					<% @article.comments.each do |comment| %>
+					<div class="comments-list">
+						<div class="media comment-body">
+							<p class="float-right"><small><%= time_ago_in_words comment.created_at%></small></p>
+							<div class="media-body">
+								<h4 class="media-heading user_name">User</h4>
+								<div><%=  comment.body %></div>
+							</div>
+						</div>
+					</div>	
+					<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
 
-<% end %>
-<% end %>
-</ul>
-</div>
-<%= render 'comments/form' %>
-<a href="#" class="btn btn-success" data-toggle="modal" data-target="#new-comment-modal">New comment</a> |
-<%= link_to 'Edit', edit_article_path(@article), class: "btn btn-success" %> |
-<%= link_to 'Back', articles_path, class: "btn btn-success" %>
+		<%= render 'comments/form' %>
+		<a href="#" class="btn btn-success" data-toggle="modal" data-target="#new-comment-modal">New comment</a> |
+		<%= link_to 'Edit', edit_article_path(@article), class: "btn btn-success" %> |
+		<%= link_to 'Back', articles_path, class: "btn btn-success" %>
+	</div>
 </div>

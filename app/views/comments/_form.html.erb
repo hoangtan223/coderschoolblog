@@ -27,7 +27,8 @@
       if (data.success){
         $(".errors").empty();
         commentList = $("#comment_list");
-        commentList.append("<li>" + data.comment + "</li>");
+        var newcomment = "<div class=\"comments-list\"><div class=\"media comment-body\"><p class=\"float-right\"><small>" + "recent" + "</small></p><div class=\"media-body\"><h4 class=\"media-heading user_name\">User</h4><div>" + data.comment + "</div></div></div></div>";
+        commentList.append(newcomment);
         $('#new-comment-modal').modal('hide');
       }
       else {

@@ -1,3 +1,30 @@
 .error_message {
 	color: red;
 }
+
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+    color: rgb(102, 189, 221);
+}
+.comments-list .media{
+    border-bottom: 1px dotted #ccc;
+}
+.media-left, img{
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+    margin-top: 20px;  
+}
+.history{
+    color: rgb(200, 199, 199);
+}
+
+.float-right {
+	float: right;
+}
+
+.comment-body {
+	margin: 20px 0px 20px 0px;
+}

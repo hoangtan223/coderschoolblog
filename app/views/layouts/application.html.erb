@@ -9,18 +9,25 @@
 </head>
 <body>
 
-<nav class="navbar navbar-light bg-faded">
-  <a class="navbar-brand" href="/">Tan's Blog</a>
-  <%= link_to 'New Article', new_article_path, class: "btn btn-success"%>
-  <%= form_tag articles_path, class: "form-inline pull-xs-right",:method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
-    <%= submit_tag "Search", :name => nil, class: "btn btn-success-outline" %>
-  </p>
-<% end %>
-</nav>
-<div class="container">
-<%= yield %>
-</div>
+  <nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand" href="/">Tan's Blog</a>
+    <%= link_to 'New Article', new_article_path, class: "btn btn-success"%>
+    <%= form_tag articles_path, class: "form-inline pull-xs-right",:method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-success-outline" %>
+    </p>
+    <% end %>
+  </nav>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        © 2016 Copyright Tan Bui
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
