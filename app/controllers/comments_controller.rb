@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 		respond_to do |format|
 			if @comment.save
 				format.json do
-					render :json => {:success => @comment.valid?, :comment => @comment.body }
+					render :json => {:success => @comment.valid?, :comment => @comment.body, :name => @comment.name }
 				end
 			else
 				format.json do
@@ -16,6 +16,6 @@ class CommentsController < ApplicationController
 
 	private
 	def comment_params
-		params.require(:comment).permit(:body, :article_id)
+		params.require(:comment).permit(:body, :name, :article_id)
 	end
 end

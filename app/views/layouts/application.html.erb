@@ -8,20 +8,22 @@
   <%= yield :head %>
 </head>
 <body>
-
-  <nav class="navbar navbar-light bg-faded">
-    <a class="navbar-brand" href="/">Tan's Blog</a>
-    <%= link_to 'New Article', new_article_path, class: "btn btn-success"%>
-    <%= form_tag articles_path, class: "form-inline pull-xs-right",:method => 'get' do %>
-    <p>
-      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
-      <%= submit_tag "Search", :name => nil, class: "btn btn-success-outline" %>
-    </p>
-    <% end %>
+  <nav class="navbar navbar-dark bg-inverse">
+    <div class="container-fluid">
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+          &#9776;
+        </button>
+      <a class="navbar-brand" href="/">Tan's Blog</a>  
+      <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+        <%= link_to 'New Article', new_article_path, class: "btn btn-success btn-new-article col-xs-12 col-sm-2"%>
+      <%= form_tag articles_path, class: "form-inline navbar-form pull-sm-right",:method => 'get' do %>
+        <%= text_field_tag :search, params[:search], class: "form-control col-xs-12 col-sm-8", placeholder: "Search" %>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-success-outline btn-search form-control col-xs-12 col-sm-3" %>
+      <% end %>
+      </div>
+    </div>
   </nav>
-  <div class="container">
     <%= yield %>
-  </div>
   <footer class="page-footer">
     <div class="footer-copyright">
       <div class="container">

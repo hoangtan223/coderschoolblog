@@ -24,7 +24,7 @@
 						<div class="media comment-body">
 							<p class="float-right"><small><%= time_ago_in_words comment.created_at%></small></p>
 							<div class="media-body">
-								<h4 class="media-heading user_name">User</h4>
+								<h4 class="media-heading user_name"><%= comment.name %></h4>
 								<div><%=  comment.body %></div>
 							</div>
 						</div>
