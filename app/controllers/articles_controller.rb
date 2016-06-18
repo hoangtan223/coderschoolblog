@@ -22,6 +22,12 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    if !@article.is_editable
+      respond_to do |format|
+      format.html { redirect_to @article, notice: 'Article is not editable.' }
+        format.json { render :show, status: :unprocessable_entity, location: @article }
+      end
+    end
   end
 
   # POST /articles
@@ -44,12 +50,17 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
+      if @article.is_editable
+        if @article.update(article_params)
+          format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+          format.json { render :show, status: :ok, location: @article }
+        else
+          format.html { render :edit }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.html { redirect_to @article, notice: 'Article is not editable.' }
+        format.json { render :show, status: :unprocessable_entity, location: @article }
       end
     end
   end
