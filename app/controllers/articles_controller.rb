@@ -57,10 +57,17 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article.destroy
-    respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
-      format.json { head :no_content }
+    if (!@article.is_deletable)
+      respond_to do |format|
+        format.html { redirect_to articles_url, notice: "Cannot delete author's article." }
+        format.json { head :no_content }
+      end     
+    else
+      @article.destroy
+      respond_to do |format|
+        format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -74,4 +81,4 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :body)
     end
-end
+  end

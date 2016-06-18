@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-	has_many :comments
+	has_many :comments, dependent: :destroy 
 
 	def self.search(search)
 		if search
