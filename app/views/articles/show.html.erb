@@ -19,7 +19,7 @@
 						<h1><small class="float-right"><%= @article.comments.count %> comments</small> Comments </h1>
 					</div> 
 					<% if @article.comments.count > 0 %>
-					<% @article.comments.each do |comment| %>
+					<% @article.comments.order(:created_at).each do |comment| %>
 					<div class="comments-list">
 						<div class="media comment-body">
 							<p class="float-right"><small><%= time_ago_in_words comment.created_at%></small></p>
@@ -36,8 +36,10 @@
 		</div>
 
 		<%= render 'comments/form' %>
-		<a href="#" class="btn btn-success" data-toggle="modal" data-target="#new-comment-modal">New comment</a> |
-		<%= link_to 'Edit', edit_article_path(@article), class: "btn btn-success" %> |
-		<%= link_to 'Back', articles_path, class: "btn btn-success" %>
+		<div class="nav-buttons">
+		<a href="#" class="btn btn-success" data-toggle="modal" data-target="#new-comment-modal">New comment</a> 
+		<%= link_to 'Edit', edit_article_path(@article), class: "btn btn-warning" %> 
+		<%= link_to 'Back', articles_path, class: "btn btn-danger" %> 
+		</div>
 	</div>
 </div>

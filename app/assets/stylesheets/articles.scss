@@ -4,24 +4,34 @@
 
 .title {
 	font-size: 50px;
-    line-height: 1.2em;
-    margin-bottom: 5px;
-    text-align: center;
-    margin: 0px auto 0;
-    padding-top: 0px;
+	line-height: 1.2em;
+	margin-bottom: 5px;
+	text-align: center;
+	margin: 0px auto 0;
+	padding-top: 0px;
 }
 
 .viewcount {
 	font-size: 13px;
-    text-transform: none;
-    margin: 10px auto 0px;
-    text-align: center;
+	text-transform: none;
+	margin: 10px auto 0px;
+	text-align: center;
 }
 
 .article_body {
 	font-size: 1.063em;
-    font-size: 17px;
-    line-height: 1.7em;
-    margin: 40px 0 60px 0;
-    display: block;
+	font-size: 17px;
+	line-height: 1.7em;
+	margin: 40px 0 60px 0;
+	display: block;
+}
+
+.new-article-header {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.nav-buttons {
+	text-align: center;
+    padding: 15px 0px 15px 0px;
 }
