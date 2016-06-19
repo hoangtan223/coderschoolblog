@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
 
 	def self.search(search)
 		if search
-			where("title LIKE ?", "%#{search}%")
+			where("lower(title) LIKE ?", "%#{search.downcase}%")
 			.order(created_at: :desc)
 		else
 			all
