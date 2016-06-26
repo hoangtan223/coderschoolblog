@@ -5,6 +5,13 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.search(params[:search])
+
+    if (params.has_key?(:tag))
+      @tag = params[:tag]
+      @articles = Tag.find_by_tag_name(@tag).articles
+      flash[:notice] = "Articles which have #{@tag} tag"
+    end
+
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 

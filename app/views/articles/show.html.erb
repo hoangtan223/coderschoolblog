@@ -8,6 +8,11 @@
 			<strong>View count:</strong>
 			<%= @article.view_count %>
 		</p>
+    <div class="tags_list">
+      <% @article.tags.each do |tag| %>
+      <%= link_to tag.tag_name, articles_path(:tag => tag.tag_name), class: "tag" %>
+          <% end %>
+    </div>
 		<div class="article_body">
 			<%= @markdown.render(@article.body).html_safe  %>
 		</div>

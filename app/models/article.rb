@@ -22,15 +22,7 @@ class Article < ActiveRecord::Base
 		tag_array = tags_string.split(/\s*,\s*/)
 		tag_array.each do |tag_string|
 			unless (tag_string.blank?)
-				# new_tag = unless Tag.find_by_tag_name tag_string
-				# 						p 'blah blah'
-				# 						Tag.new(tag_name: tag_string)
-				# 					else
-				# 						Tag.find_by_tag_name tag_string
-				# 					end
-
 				new_tag = (Tag.find_by_tag_name tag_string) || Tag.new(tag_name: tag_string)
-
 				self.tags << new_tag
 			end
 		end
