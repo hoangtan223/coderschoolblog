@@ -10,7 +10,7 @@
 		</p>
     <div class="tags_list">
       <% @article.tags.each do |tag| %>
-      <%= link_to tag.tag_name, articles_path(:tag => tag.tag_name), class: "tag" %>
+      <%= link_to tag.tag_name, articles_path(:tag => tag.tag_name), class: "article-tag" %>
           <% end %>
     </div>
 		<div class="article_body">
