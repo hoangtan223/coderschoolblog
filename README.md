@@ -6,7 +6,7 @@
 
 Submitted by: **Tan Bui**
 
-Time spent: **8** hours spent in total
+Time spent: **32** hours spent in total
 
 URL: **https://hidden-ocean-23213.herokuapp.com**
 
@@ -25,17 +25,15 @@ The following **optional** features are implemented:
 * [x] There is a "navbar" that is responsive to window size similar to http://v4-alpha.getbootstrap.com/examples/navbar/. 
 * [x] User can see how many views a post has. 
 * [x] User can leave a comment on a post.
-* [ ] User can add "tags" to a post, and filter posts by tag. 
+* [x] User can add "tags" to a post, and filter posts by tag.
 
-The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](http://i.imgur.com/irc38Yi.gif)
+![Video Walkthrough](https://i.imgur.com/t0wg66X.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
